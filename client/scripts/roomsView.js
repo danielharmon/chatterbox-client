@@ -6,7 +6,13 @@ var RoomsView = {
   initialize: function() {
   },
 
-  render: function() {
+  renderRoom: function(string) {
+
+
+    this.$select.append(string);
+    $('body').append(this.$select);
+
   }
 
 };
+

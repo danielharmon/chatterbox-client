@@ -1,4 +1,4 @@
-var MessageView = {
+var RoomView = {
 
   render: _.template(`
 
