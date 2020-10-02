@@ -26,7 +26,13 @@ var App = {
         if (!data.results[i].username) {
           data.results[i].username = 'anonymous';
         }
+
+        if (!data.results[i].text) {
+          data.results[i].text = '';
+        }
+
         Messages[i] = data.results[i];
+        rooms[data.results[i].roomname] = data.results[i].roomname;
       }
 
       for (var key in Messages) {

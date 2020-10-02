@@ -8,8 +8,14 @@ var FormView = {
 
   handleSubmit: function(event) {
     // Stop the browser from submitting the form
-    event.preventDefault();
+    // event.preventDefault();
     
+    event.username = App.username;
+    event.text = event.currentTarget[0].value;
+    console.log(event);
+
+    Parse.create(event, () => App.initialize());
+
     console.log('click!');
   },
 
