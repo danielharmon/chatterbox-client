@@ -10,7 +10,6 @@ var RoomsView = {
 
 
     this.$select.append(string);
-    $('body').append(this.$select);
 
   }
 

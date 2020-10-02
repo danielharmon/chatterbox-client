@@ -22,6 +22,17 @@ var App = {
       // examine the response from the server request:
       console.log(data);
 
+      for (var i = 0; i < data.results.length; i++) {
+        if (!data.results[i].username) {
+          data.results[i].username = 'anonymous';
+        }
+        Messages[i] = data.results[i];
+      }
+
+      for (var key in Messages) {
+        MessagesView.renderMessage(Messages[key]);
+      }
+
       callback();
     });
   },

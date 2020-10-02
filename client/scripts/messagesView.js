@@ -7,10 +7,9 @@ var MessagesView = {
 
   renderMessage: function(message) {
 
-
     this.$chats.append(MessageView.render(message));
+  
     
-    $('body').append(this.$chats);
   }
 
 };
