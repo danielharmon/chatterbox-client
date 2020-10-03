@@ -6,11 +6,6 @@ var App = {
 
   initialize: function() {
     App.username = window.location.search.substr(10);
-
-    FormView.initialize();
-    RoomsView.initialize();
-    MessagesView.initialize();
-
     // Fetch initial batch of messages
     App.startSpinner();
     App.fetch(App.stopSpinner);
@@ -31,14 +26,14 @@ var App = {
           data.results[i].text = '';
         }
 
+        if (!data.results[i].roomname) {
+          data.results[i].roomname = 'lobby';
+        }
+
         Messages[i] = data.results[i];
-        rooms[data.results[i].roomname] = data.results[i].roomname;
+        Rooms.roomsList.add(data.results[i].roomname);
       }
-
-      for (var key in Messages) {
-        MessagesView.renderMessage(Messages[key]);
-      }
-
+      
       callback();
     });
   },
@@ -51,5 +46,8 @@ var App = {
   stopSpinner: function() {
     App.$spinner.fadeOut('fast');
     FormView.setStatus(false);
+    FormView.initialize();
+    RoomsView.initialize();
+    MessagesView.initialize();
   }
 };

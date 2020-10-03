@@ -1,12 +1,6 @@
 var Rooms = {
 
+  roomsList: new Set([]),
 
-  initializeRooms: function(room) {
-
-    for (let key in Rooms) {
-      
-    }
-
-  }
-
+  
 };

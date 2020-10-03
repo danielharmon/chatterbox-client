@@ -12,7 +12,7 @@ var FormView = {
     
     event.username = App.username;
     event.text = event.currentTarget[0].value;
-    console.log(event);
+    event.roomname = MessagesView.roomName;
 
     Parse.create(event, () => App.initialize());
 
