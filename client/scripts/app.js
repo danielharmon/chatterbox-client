@@ -27,7 +27,7 @@ var App = {
         }
 
         if (!data.results[i].roomname) {
-          data.results[i].roomname = 'lobby';
+          data.results[i].roomname = 'All';
         }
 
         Messages[i] = data.results[i];

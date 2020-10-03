@@ -8,7 +8,6 @@ var FormView = {
 
   handleSubmit: function(event) {
     // Stop the browser from submitting the form
-    // event.preventDefault();
     
     event.username = App.username;
     event.text = event.currentTarget[0].value;

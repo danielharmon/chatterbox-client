@@ -4,18 +4,14 @@ var RoomsView = {
   $select: $('#rooms select'),
 
   initialize: function() {
-
+    this.$select.empty();
     Rooms.roomsList.forEach(function(roomname) {
 
       RoomsView.populateSelect(roomname);
     });
-  },
-  
-  renderRoom: function(string) {
-    
-    // this.$select.append(string);
     
   },
+
   
   populateSelect: function(roomname) {
     let $option = $('<option></option>');

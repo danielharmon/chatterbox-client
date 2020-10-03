@@ -4,17 +4,19 @@ var MessagesView = {
   $chats: $('#chats'),
 
   initialize: function() {
+
+    this.$chats.empty();
     $('#rooms button').on('click', function() {
       MessagesView.roomName = prompt('Type in your room name:' || 'All');
     });
 
-    this.$chats.empty();
     $('#rooms select').on('change', function() {
 
       MessagesView.initialize();
     });
 
     var $selectedRoom = $('#rooms select option:selected').text();
+
     if ($selectedRoom === 'All') {
       for (let key in Messages) {
         MessagesView.renderMessage(Messages[key]);
@@ -27,14 +29,20 @@ var MessagesView = {
       }
     }
 
+    $('.username').on('click', function() {
+      Friends.friendsList.add($(this).text());
+      MessagesView.initialize();
+    });
   },
 
   renderMessage: function(message) {
 
-    this.$chats.append(MessageView.render(message));
-  
+    if (Friends.friendsList.has(` ${message.username} `)) {
+      this.$chats.append(MessageView.renderFriend(message));
+    } else {
+      this.$chats.append(MessageView.render(message));
+    }
   }
-
 };
 
 
